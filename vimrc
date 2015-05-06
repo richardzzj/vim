@@ -1,4 +1,7 @@
+set nocompatible
 syntax on
 set nu
-set cindent
-filetype on
+filetype plugin indent on
+
+autocmd FileType c,cpp source ~/.vimrc4c
+autocmd FileType python source ~/.vimrc4py
