@@ -38,7 +38,7 @@ function! UpdateCtags()
                 endif
         endwhile
         if filewritable("./tags")
-                !ctags -R --file-scope=yes --langmap=c:+.h --languags=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fileds=+iaS --extra=+q
+                !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fileds=+iaS --extra=+q
                 TlistUpdate
         endif
         while !filereadable("cscope.out")
@@ -52,7 +52,7 @@ function! UpdateCtags()
                 cs reset
         endif
         execute ":cd" . curdir
-endwhile
+endfunction
 
 " key map
 nmap <F12> :TlistToggle<CR>
