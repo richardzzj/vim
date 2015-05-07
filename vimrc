@@ -6,11 +6,12 @@ set autoread
 filetype plugin indent on
 set completeopt=preview,menu
 set nobackup
-set cursorclumn
+set cursorcolumn
 set cursorline
 set hlsearch
 set incsearch
 set completeopt=longest,menu
+set wildmenu
 set wildignore=*.o,*.d,*~,*.pyc,*.class
 
 
