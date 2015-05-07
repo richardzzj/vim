@@ -1,19 +1,116 @@
 set nocompatible
+" 开启语法高亮
 syntax on
-set nu
-set encoding=utf-8
-set autoread
-filetype plugin indent on
-set completeopt=preview,menu
-set nobackup
-set cursorcolumn
-set cursorline
-set hlsearch
-set incsearch
-set completeopt=longest,menu
-set wildmenu
-set wildignore=*.o,*.d,*~,*.pyc,*.class
 
+filetype plugin indent on
+"检测文件类型
+filetype on
+"针对不同的文件类型采用不同的缩进格式
+filetype indent on
+"允许插件
+filetype plugin on
+"启动自动补全
+filetype plugin indent on
+
+" 文件修改之后自动载入。
+set autoread
+" 取消备份。 视情况自己改
+set nobackup
+" 突出显示当前行等
+set cursorcolumn
+" 突出显示当前行
+set cursorline
+" 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
+" 好处：误删什么的，如果以前屏幕打开，可以找回
+set t_ti= t_te=
+
+"==========================================
+" Display Settings 展示/排版等界面格式设置
+"==========================================
+"
+" 显示当前的行号列号：
+set ruler
+" 在状态栏显示正在输入的命令
+set showcmd
+" 左下角显示当前vim模式
+set showmode
+
+" 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set scrolloff=5
+
+" 显示行号：
+set number
+
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+" Always show the status line - use 2 lines for the status bar
+set laststatus=2
+
+" 括号配对情况,跳转并高亮一下匹配的括号
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set matchtime=2
+
+" 设置文内智能搜索提示
+" 高亮search命中的文本。
+set hlsearch
+" 打开增量搜索模式,随着键入即时搜索
+set incsearch
+" 搜索时忽略大小写
+set ignorecase
+" 有一个或以上大写字母时仍大小写敏感
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+
+"==========================================
+" FileEncode Settings 文件编码,格式
+"==========================================
+" 设置新文件的编码为 UTF-8
+set encoding=utf-8
+" 自动判断编码时，依次尝试以下编码：
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set helplang=cn
+set langmenu=zh_CN.UTF-8
+set enc=2byte-gb18030
+" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
+set termencoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" 如遇Unicode值大于255的文本，不必等到空格再折行。
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格：
+set formatoptions+=B
+
+"==========================================
+" others 其它设置
+"==========================================
+" 自动补全配置
+" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+set completeopt=longest,menu
+" 增强模式中的命令行自动完成操作
+set wildmenu
+" Ignore compiled files
+set wildignore=*.o,*.d,*~,*.pyc,*.class,*.swp,*.bak
+
+" 定义函数AutoSetFileHead，自动插入文件头
+autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
+function! AutoSetFileHead()
+	" 如果文件类型为.sh文件
+	if &filetype == 'sh'
+		call setline(1, "\#!/bin/bash")
+	endif
+	
+	" 如果文件类型为python
+	if &filetype == 'python'
+		call setline(1, "\#!/usr/bin/env python")
+		call append(1, "\# encoding: utf-8")
+	endif
+ 
+	normal G
+	normal o
+	normal o
+endfunction
 
 " Authorinfo
 let g:vimrc_author="richard zhang"
@@ -23,3 +120,4 @@ nmap <F4> :AuthorInfoDetect<cr>
 
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
+autocmd FileType sh source ~/.vimrc4sh

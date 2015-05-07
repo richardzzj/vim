@@ -55,5 +55,5 @@ function! UpdateCtags()
 endfunction
 
 " key map
-nmap <F12> :TlistToggle<CR>
-nmap <F11> :call UpdateCtags()<CR>
+nmap <F5> :TlistToggle<CR>
+nmap <F6> :call UpdateCtags()<CR>
