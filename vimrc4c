@@ -1,4 +1,4 @@
-set autocindent
+set autoindent
 set cindent
 set smartindent
 set tabstop=4
@@ -38,22 +38,22 @@ function! UpdateCtags()
                 endif
         endwhile
         if filewritable("./tags")
-                !ctags -R --file-scope=yes --langmap=c:+.h --language=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fileds=+iaS --extra=+q
+                !ctags -R --file-scope=yes --langmap=c:+.h --languags=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fileds=+iaS --extra=+q
                 TlistUpdate
         endif
         while !filereadable("cscope.out")
                 cd ..
-                if getcwd()="/"
+                if getcwd()=="/"
                         break
                 endif
         endwhile
         if filewritable("./cscope.out")
                 !cscope -Rbq
-                ca reset
+                cs reset
         endif
         execute ":cd" . curdir
 endwhile
 
 " key map
-nmap<F12> :TlistToggle<CR>
-nmap<F11> :call UpdateCtags()<CR>
+nmap <F12> :TlistToggle<CR>
+nmap <F11> :call UpdateCtags()<CR>
