@@ -1,7 +1,18 @@
 set nocompatible
 syntax on
 set nu
+set encoding=utf-8
+set autoread
 filetype plugin indent on
+set completeopt=preview,menu
+set nobackup
+set cursorclumn
+set cursorline
+set hlsearch
+set incsearch
+set completeopt=longest,menu
+set wildignore=*.o,*.d,*~,*.pyc,*.class
+
 
 " Authorinfo
 let g:vimrc_author="richard zhang"
