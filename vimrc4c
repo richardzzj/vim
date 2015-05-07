@@ -1,25 +1,19 @@
+set autocindent
 set cindent
 set smartindent
-set autoindent
-set showmatch
-set incsearch
-set shiftwidth=4
-set ruler
 set tabstop=4
-set title
-set smarttab
-"set fdm=indent
-
-" ker map
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
 " for taglist
-" if has("ctags")
-	let Tlist_Show_One_File=1
-	let Tlist_Exit_OnlyWindow=1
-        let Tlist_Use_Left_Window=1
-        let Tlist_Auto_Update=1
-        let Tlist_Auto_Open=1
-" endif
+let Tlist_Auto_Open=1
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Left_Window=1
+let Tlist_Auto_Update=1
+let Tlist_WinHeight=10
+let Tlist_WinWidth=18
 
 " for cscope
 if has("cscope")
