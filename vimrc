@@ -123,11 +123,11 @@ let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
 let g:NERDTreeWinSize=22
 "let g:NERDTreeShowLineNumbers=1
-autocmd vimenter * NERDTree
+autocmd vimenter * NERDTree | wincmd w | wincmd l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 " neocomplcache
-"let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 1
 
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
