@@ -100,13 +100,13 @@ function! AutoSetFileHead()
 	if &filetype == 'sh'
 		call setline(1, "\#!/bin/bash")
 	endif
-	
+
 	" 如果文件类型为python
 	if &filetype == 'python'
 		call setline(1, "\#!/usr/bin/env python")
 		call append(1, "\# encoding: utf-8")
 	endif
- 
+
 	normal G
 	normal o
 	normal o
@@ -116,7 +116,7 @@ endfunction
 let g:vimrc_author="richard zhang"
 let g:vimrc_email="richardzzj@gmail.com"
 let g:vimrc_homepage=" "
-nmap <F4> :AuthorInfoDetect<cr>
+nmap <F4> :AuthorInfoDetect<CR>
 
 " Nerdtree
 let g:NERDTreeWinPos="left"
@@ -128,6 +128,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
+
+" strip space at tails
+" http://vim.wikia.com/wiki/Remove_unwanted_spaces
+function! StripTrailingWhitespace()
+	if !&binary && &filetype != 'diff'
+		normal mz
+		normal Hmy
+		%s/\s\+$//e
+		normal 'yz<CR>
+		normal `z
+	endif
+endfunction
 
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
