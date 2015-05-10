@@ -144,3 +144,6 @@ endfunction
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
 autocmd FileType sh source ~/.vimrc4sh
+
+" open file and local the cursor at the last edit line
+autocmd BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
