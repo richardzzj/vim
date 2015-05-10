@@ -119,8 +119,10 @@ let g:vimrc_homepage=" "
 nmap <F4> :AuthorInfoDetect<cr>
 
 "Nerdtree"
-let NERDTreeDirArrows=0
-let NERDTreeWinSize=22
+let g:NERDTreeWinPos="left"
+let g:NERDTreeDirArrows=0
+let g:NERDTreeWinSize=22
+"let g:NERDTreeShowLineNumbers=1
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
