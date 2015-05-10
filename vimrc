@@ -126,6 +126,9 @@ let g:NERDTreeWinSize=22
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
+" neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
 autocmd FileType sh source ~/.vimrc4sh
