@@ -118,6 +118,12 @@ let g:vimrc_email="richardzzj@gmail.com"
 let g:vimrc_homepage=" "
 nmap <F4> :AuthorInfoDetect<cr>
 
+"Nerdtree"
+let NERDTreeDirArrows=0
+let NERDTreeWinSize=22
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
 autocmd FileType c,cpp source ~/.vimrc4c
 autocmd FileType python source ~/.vimrc4py
 autocmd FileType sh source ~/.vimrc4sh
