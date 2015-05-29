@@ -116,7 +116,7 @@ endfunction
 let g:vimrc_author="richard zhang"
 let g:vimrc_email="richardzzj@gmail.com"
 let g:vimrc_homepage=" "
-nmap <F4> :AuthorInfoDetect<CR>
+nmap <F5> :AuthorInfoDetect<CR>
 
 " Nerdtree
 let g:NERDTreeWinPos="left"
@@ -125,6 +125,7 @@ let g:NERDTreeWinSize=22
 "let g:NERDTreeShowLineNumbers=1
 autocmd vimenter * NERDTree | wincmd w | wincmd l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+nmap <F6> :NERDTreeToggle<CR>
 
 " neocomplcache
 let g:neocomplcache_enable_at_startup = 1
