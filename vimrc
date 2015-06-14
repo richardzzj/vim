@@ -118,10 +118,62 @@ let g:vimrc_email="richardzzj@gmail.com"
 let g:vimrc_homepage=" "
 nmap <F5> :AuthorInfoDetect<CR>
 
+" for taglist
+"let Tlist_Auto_Open=1
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Left_Window=1
+let Tlist_Auto_Update=1
+let Tlist_WinHeight=10
+let Tlist_WinWidth=38
+
+" for cscope
+if has("cscope")
+	set csprg=/usr/bin/cscope
+	set csto=1
+	set cst
+	set nocsverb
+	" add any database in current directory
+	if filereadable("cscope.out")
+		cs add cscope.out
+	endif
+	set csverb
+endif
+
+" functions
+function! UpdateCtags()
+	let curdir=getcwd()
+	while !filereadable("./tags")
+		cd ..
+		if getcwd() == "/"
+			break
+		endif
+	endwhile
+	if filewritable("./tags")
+		!ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --c++-kinds=+p --fields=+iaS --extra=+q
+		TlistUpdate
+	endif
+	while !filereadable("./cscope.out")
+		cd ..
+		if getcwd()=="/"
+			break
+		endif
+	endwhile
+	if filewritable("./cscope.out")
+		!cscope -Rbq
+		cs reset
+	endif
+	execute ":cd" . curdir
+endfunction
+
+" key map
+nmap <F7> :TlistToggle<CR>
+nmap <F8> :call UpdateCtags()<CR>
+
 " Nerdtree
 let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
-let g:NERDTreeWinSize=22
+let g:NERDTreeWinSize=38
 "let g:NERDTreeShowLineNumbers=1
 autocmd vimenter * NERDTree | wincmd w | wincmd l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
