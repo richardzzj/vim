@@ -75,6 +75,18 @@ hi MarkWord3  ctermbg=Yellow   ctermfg=Black  guibg=#FFDB72    guifg=Black
 hi MarkWord4  ctermbg=Red      ctermfg=Black  guibg=#FF7272    guifg=Black
 hi MarkWord5  ctermbg=Magenta  ctermfg=Black  guibg=#FFB3FF    guifg=Black
 hi MarkWord6  ctermbg=Blue     ctermfg=Black  guibg=#9999FF    guifg=Black
+hi MarkWord7  ctermbg=Cyan     ctermfg=White  guibg=#8CCBEA    guifg=White
+hi MarkWord8  ctermbg=Green    ctermfg=White  guibg=#A4E57E    guifg=White
+hi MarkWord9  ctermbg=Yellow   ctermfg=White  guibg=#FFDB72    guifg=White
+hi MarkWord10  ctermbg=Red      ctermfg=White  guibg=#FF7272    guifg=White
+hi MarkWord11  ctermbg=Magenta  ctermfg=White  guibg=#FFB3FF    guifg=White
+hi MarkWord12  ctermbg=Blue     ctermfg=White  guibg=#9999FF    guifg=White
+hi MarkWord13  ctermbg=Cyan     ctermfg=Red  guibg=#8CCBEA    guifg=Red
+hi MarkWord14  ctermbg=Green    ctermfg=Red  guibg=#A4E57E    guifg=Red
+hi MarkWord15  ctermbg=Yellow   ctermfg=Red  guibg=#FFDB72    guifg=Red
+hi MarkWord16  ctermbg=Red      ctermfg=Red  guibg=#FF7272    guifg=Red
+hi MarkWord17  ctermbg=Magenta  ctermfg=Red  guibg=#FFB3FF    guifg=Red
+hi MarkWord18  ctermbg=Blue     ctermfg=Red  guibg=#9999FF    guifg=Red
 
 " Anti reinclusion guards
 if exists('g:loaded_mark') && !exists('g:force_reload_mark')

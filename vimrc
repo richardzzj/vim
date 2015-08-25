@@ -119,7 +119,7 @@ let g:vimrc_homepage=" "
 nmap <F5> :AuthorInfoDetect<CR>
 
 " for taglist
-"let Tlist_Auto_Open=1
+let Tlist_Auto_Open=1
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Left_Window=1
@@ -175,7 +175,7 @@ let g:NERDTreeWinPos="left"
 let g:NERDTreeDirArrows=0
 let g:NERDTreeWinSize=38
 "let g:NERDTreeShowLineNumbers=1
-autocmd vimenter * NERDTree | wincmd w | wincmd l
+"autocmd vimenter * NERDTree | wincmd w | wincmd l
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 nmap <F6> :NERDTreeToggle<CR>
 
