@@ -178,7 +178,10 @@ endfunction
 
 function! Joeyiskernel()
 	let pwd = system("basename `pwd`")
-	return (match(pwd, "linux") != -1) && (filereadable("Kconfig")) && (filereadable("Kbuild")) && (filereadable("Makefile"))
+	return (match(pwd, "linux") != -1) &&
+	        \(filereadable("Kconfig")) &&
+		\(filereadable("Kbuild")) &&
+		\(filereadable("Makefile"))
 endfunction
 
 function! JoeyToggleNumber()
