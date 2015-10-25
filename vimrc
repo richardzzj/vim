@@ -176,9 +176,19 @@ function! UpdateCtags()
 	execute ":cd" . curdir
 endfunction
 
+function! Joeyiskernel()
+	let pwd = system("basename `pwd`")
+	return (match(pwd, "linux") != -1) && (filereadable("Kconfig")) && (filereadable("Kbuild")) && (filereadable("Makefile"))
+endfunction
+
+function! JoeyToggleNumber()
+	set number!
+endfunction
+
 " key map
 nmap <F7> :TlistToggle<CR>
 nmap <F8> :call UpdateCtags()<CR>
+nmap <C-^>t :call JoeyToggleNumber()<CR>
 
 " Nerdtree
 let g:NERDTreeWinPos="left"
