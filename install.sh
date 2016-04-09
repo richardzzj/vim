@@ -43,4 +43,4 @@ for dir in $VIMDIRS; do
     install_dir $dir
 done
 
-echo "done"
+echo "Done"
